@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta Comercial — Calebito × Bê-a-Bá Mídia</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:      #00A851;
+    --green-dark: #02632B;
+    --white:      #FFFFFF;
+    --black:      #0A0A0A;
+    --ink:        #111811;
+    --cream:      #F7FAF8;
+    --light:      #EAF4EE;
+    --mid:        #C8E6D4;
+    --gray:       #6B7B6F;
+    --gray-light: #A8B8AD;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,168,81,0.15);
+  }
+
+  .nav-logo img { height: 30px; display: block; }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+  .nav-links a {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--green); }
+
+  section {
+    padding: 8rem 0;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  section.visible { opacity: 1; transform: none; }
+
+  .container { max-width: 980px; margin: 0 auto; padding: 0 3rem; }
+
+  /* CAPA */
+  #capa {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--black);
+    padding: 0;
+    opacity: 1;
+    transform: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #capa::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 560px; height: 560px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,168,81,0.13) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  #capa::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 4%;
+    width: 0; height: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-bottom: 280px solid rgba(2,99,43,0.06);
+    pointer-events: none;
+  }
+
+  .capa-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    width: 100%;
+  }
+
+  .capa-logo { margin-bottom: 3.5rem; }
+  .capa-logo img { height: 48px; }
+
+  .capa-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 1.8rem;
+  }
+
+  .capa-eyebrow::before {
+    content: '';
+    width: 28px; height: 2px;
+    background: var(--green);
+    display: inline-block;
+  }
+
+  .capa-title {
+    font-size: clamp(2.6rem, 6vw, 4.8rem);
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--white);
+    letter-spacing: -0.025em;
+    margin-bottom: 1.8rem;
+  }
+
+  .capa-title .accent { color: var(--green); }
+
+  .capa-sub {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.06em;
+    margin-bottom: 4rem;
+  }
+
+  .capa-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 2.5rem;
+  }
+
+  .capa-meta-item {
+    padding: 0 2rem;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .capa-meta-item:first-child { padding-left: 0; }
+  .capa-meta-item:last-child { border-right: none; }
+
+  .capa-meta-item label {
+    display: block;
+    font-size: 0.57rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.22);
+    margin-bottom: 0.4rem;
+  }
+
+  .capa-meta-item span {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* SECTION LABEL */
+  .sec-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 1rem;
+  }
+
+  .sec-label .num {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--green);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.58rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  h2 {
+    font-size: clamp(1.85rem, 3.5vw, 2.7rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+
+  h2 .accent { color: var(--green-dark); }
+
+  p {
+    font-size: 0.9rem;
+    color: #3D4D42;
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+    font-weight: 600;
+  }
+
+  /* DIAGNÓSTICO */
+  #diagnostico { background: var(--cream); }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--mid);
+    margin: 3rem 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .stat-box {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: 3.8rem;
+    font-weight: 800;
+    color: var(--green-dark);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.04em;
+  }
+
+  .stat-label {
+    font-size: 0.67rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  .info-list { list-style: none; margin: 1.5rem 0; }
+
+  .info-list li {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(0,168,81,0.1);
+    font-size: 0.87rem;
+    color: #3D4D42;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-weight: 700;
+  }
+
+  .info-list li::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    margin-top: 0.55rem;
+    flex-shrink: 0;
+  }
+
+  /* PROBLEMA */
+  #problema { background: var(--ink); }
+  #problema h2 { color: var(--white); }
+  #problema p { color: rgba(255,255,255,0.5); }
+  #problema .sec-label { color: var(--green); }
+  #problema .sec-label .num { background: var(--green-dark); }
+
+  .prob-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: rgba(0,168,81,0.1);
+    margin: 3rem 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .prob-item { background: #161E18; padding: 2rem; }
+
+  .prob-num {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: rgba(0,168,81,0.18);
+    line-height: 1;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.03em;
+  }
+
+  .prob-item p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.58);
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .prob-item p strong { color: var(--green); font-weight: 800; }
+
+  .prob-destaque {
+    border: 1.5px solid rgba(0,168,81,0.28);
+    padding: 2rem;
+    border-radius: 4px;
+    position: relative;
+  }
+
+  .prob-destaque-icon {
+    position: absolute;
+    top: -12px; left: 2rem;
+    background: var(--ink);
+    padding: 0 0.6rem;
+    color: var(--green);
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
+
+  .prob-destaque p {
+    color: rgba(255,255,255,0.82);
+    font-size: 0.93rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .prob-destaque strong { color: var(--green); font-weight: 800; }
+
+  /* SOLUÇÃO */
+  #solucao { background: var(--cream); }
+
+  .steps { margin: 3rem 0; position: relative; }
+
+  .steps::before {
+    content: '';
+    position: absolute;
+    left: 19px; top: 40px; bottom: 40px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--green), rgba(0,168,81,0.08));
+  }
+
+  .step { display: flex; gap: 1.8rem; padding: 1.2rem 0; align-items: flex-start; }
+
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-content h4 {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    margin-bottom: 0.3rem;
+  }
+
+  .step-content p { font-size: 0.87rem; margin: 0; color: #4D5D52; font-weight: 600; }
+
+  .aviso {
+    padding: 1.3rem 1.7rem;
+    margin-top: 1.2rem;
+    border-radius: 4px;
+    font-size: 0.84rem;
+    font-weight: 700;
+  }
+
+  .aviso-green { background: var(--light); border-left: 3px solid var(--green); color: var(--green-dark); }
+  .aviso-yellow { background: #FFF8EC; border-left: 3px solid #E8A020; color: #7A5010; }
+  .aviso strong { font-weight: 800; }
+
+  /* MÓDULOS */
+  #modulos { background: #EEF5F1; }
+
+  .modulos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+
+  .modulo-card {
+    background: var(--white);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+  }
+
+  .modulo-header { padding: 2rem; }
+  .modulo-header-1 { background: var(--ink); }
+  .modulo-header-2 { background: var(--green-dark); }
+
+  .modulo-badge {
+    display: inline-block;
+    font-size: 0.57rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    border: 1.5px solid rgba(0,168,81,0.4);
+    padding: 0.22rem 0.65rem;
+    border-radius: 20px;
+    margin-bottom: 0.8rem;
+  }
+
+  .modulo-header-2 .modulo-badge { color: rgba(255,255,255,0.65); border-color: rgba(255,255,255,0.22); }
+
+  .modulo-header h3 {
+    font-size: 1.12rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  .modulo-body { padding: 2rem; }
+  .modulo-sec { margin-bottom: 1.4rem; }
+
+  .modulo-sec-label {
+    font-size: 0.57rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .modulo-list { list-style: none; }
+
+  .modulo-list li {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #3D4D42;
+    padding: 0.28rem 0 0.28rem 1rem;
+    position: relative;
+    border-bottom: 1px solid rgba(0,168,81,0.07);
+  }
+
+  .modulo-list li::before { content: '—'; position: absolute; left: 0; color: var(--green); font-size: 0.7rem; }
+
+  .tags-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; }
+
+  .tag {
+    background: var(--light);
+    color: var(--green-dark);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    padding: 0.22rem 0.6rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+  }
+
+  .modulo-footer {
+    border-top: 1px solid rgba(0,168,81,0.1);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background: #FAFCFB;
+  }
+
+  .modulo-preco-label {
+    font-size: 0.57rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .modulo-preco { font-size: 1.9rem; font-weight: 800; color: var(--green-dark); line-height: 1; letter-spacing: -0.02em; }
+  .modulo-preco small { font-size: 0.88rem; }
+
+  .modulo-criterio { font-size: 0.68rem; font-weight: 600; color: var(--gray-light); max-width: 140px; text-align: right; line-height: 1.4; font-style: italic; }
+
+  /* CICLO */
+  #ciclo { background: var(--cream); }
+
+  .ciclo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--mid);
+    margin: 3rem 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .ciclo-mes { background: var(--white); padding: 2.5rem 2rem; }
+
+  .ciclo-mes-tag { font-size: 0.57rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); display: block; margin-bottom: 0.4rem; }
+
+  .ciclo-mes-title { font-size: 1.1rem; font-weight: 800; color: var(--ink); margin-bottom: 1.4rem; padding-bottom: 1rem; border-bottom: 2px solid var(--light); letter-spacing: -0.01em; }
+
+  .ciclo-mes ul { list-style: none; }
+
+  .ciclo-mes ul li { font-size: 0.82rem; font-weight: 700; color: #4D5D52; padding: 0.35rem 0 0.35rem 1rem; border-bottom: 1px solid rgba(0,0,0,0.04); position: relative; }
+
+  .ciclo-mes ul li::before { content: '·'; position: absolute; left: 0; color: var(--green); font-size: 1.4rem; line-height: 1.1; font-weight: 800; }
+
+  .ciclo-cap { display: inline-flex; align-items: center; gap: 1.2rem; background: var(--green-dark); color: var(--white); padding: 1.2rem 2rem; border-radius: 4px; margin-top: 0.5rem; }
+
+  .ciclo-cap span { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.55; }
+  .ciclo-cap strong { font-size: 1rem; font-weight: 800; }
+
+  /* COMPROMISSO */
+  #compromisso { background: var(--green); }
+  #compromisso h2 { color: var(--white); }
+  #compromisso p { color: rgba(255,255,255,0.72); }
+  #compromisso .sec-label { color: rgba(255,255,255,0.5); }
+  #compromisso .sec-label .num { background: rgba(255,255,255,0.2); }
+
+  .comp-quote { border-left: 3px solid rgba(255,255,255,0.32); padding: 1.2rem 2rem; margin: 2rem 0; }
+
+  .comp-quote p { font-size: 1.08rem; font-weight: 700; color: var(--white); margin: 0; line-height: 1.55; font-style: italic; }
+
+  /* ALINHAMENTO */
+  #alinhamento { background: #EEF5F1; }
+
+  .perguntas { margin: 3rem 0; counter-reset: p; }
+
+  .pergunta { display: flex; gap: 2rem; padding: 1.8rem 0; border-bottom: 1px solid rgba(0,168,81,0.12); counter-increment: p; align-items: flex-start; }
+
+  .pergunta::before { content: counter(p, decimal-leading-zero); font-size: 1.6rem; font-weight: 800; color: rgba(0,168,81,0.18); flex-shrink: 0; width: 2.4rem; letter-spacing: -0.02em; line-height: 1; padding-top: 0.2rem; }
+
+  .pergunta p { font-size: 0.92rem; font-weight: 700; color: #2A3A2F; margin: 0; line-height: 1.6; }
+
+  /* INVESTIMENTO */
+  #investimento { background: var(--ink); }
+  #investimento h2 { color: var(--white); }
+  #investimento .sec-label { color: var(--green); }
+  #investimento .sec-label .num { background: var(--green-dark); }
+
+  .invest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 3rem 0; }
+
+  .invest-box { border: 1px solid rgba(255,255,255,0.07); padding: 2.5rem; border-radius: 6px; background: rgba(255,255,255,0.02); }
+
+  .invest-box-label { font-size: 0.57rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.22); display: block; padding-bottom: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 1.8rem; }
+
+  .invest-total { font-size: 4rem; font-weight: 800; color: var(--green); line-height: 1; letter-spacing: -0.04em; margin-bottom: 0.3rem; }
+  .invest-total sup { font-size: 1.4rem; vertical-align: super; }
+
+  .invest-total-sub { font-size: 0.68rem; font-weight: 800; color: rgba(255,255,255,0.22); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.8rem; }
+
+  .invest-retainer { padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); }
+
+  .invest-retainer-label { font-size: 0.57rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.22); display: block; margin-bottom: 0.3rem; }
+
+  .invest-retainer-val { font-size: 1.55rem; font-weight: 800; color: rgba(255,255,255,0.55); letter-spacing: -0.02em; }
+
+  .pag-opts { display: flex; flex-direction: column; gap: 1rem; }
+
+  .pag-opt { border: 1px solid rgba(255,255,255,0.06); padding: 1.4rem 1.6rem; border-radius: 4px; background: rgba(255,255,255,0.02); }
+
+  .pag-opt-label { font-size: 0.57rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); display: block; margin-bottom: 0.6rem; }
+
+  .pag-opt-desc { font-size: 0.97rem; font-weight: 700; color: rgba(255,255,255,0.72); line-height: 1.5; }
+  .pag-opt-desc small { font-size: 0.76rem; opacity: 0.42; font-weight: 600; }
+
+  .pag-nota { margin-top: 1.2rem; padding: 1rem 1.4rem; background: rgba(255,255,255,0.03); border-left: 2px solid rgba(0,168,81,0.28); border-radius: 0 4px 4px 0; }
+
+  .pag-nota p { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.28); margin: 0; font-style: italic; }
+
+  .ciclo2 { border: 1.5px solid rgba(0,168,81,0.22); padding: 2rem; border-radius: 6px; margin-top: 1rem; }
+
+  .ciclo2-label { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); display: block; margin-bottom: 0.8rem; }
+
+  .ciclo2 p { font-size: 0.87rem; font-weight: 600; color: rgba(255,255,255,0.5); margin: 0; }
+  .ciclo2 strong { color: var(--green); font-weight: 800; }
+
+  /* FOOTER */
+  footer {
+    background: #060A07;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer img { height: 22px; opacity: 0.35; }
+
+  footer p { font-size: 0.64rem; font-weight: 700; color: rgba(255,255,255,0.16); letter-spacing: 0.1em; margin: 0; text-transform: uppercase; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .container { padding: 0 1.5rem; }
+    section { padding: 5rem 0; }
+    .stats-row, .modulos-grid, .ciclo-grid, .invest-grid, .prob-grid, .capa-meta { grid-template-columns: 1fr; }
+    .capa-title { font-size: 2.2rem; }
+  }
+
+  @media print {
+    nav { display: none; }
+    section { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><img src="logo_beaba.png" alt="Bê-a-Bá Mídia"></div>
+  <ul class="nav-links">
+    <li><a href="#diagnostico">Cenário</a></li>
+    <li><a href="#problema">Problema</a></li>
+    <li><a href="#solucao">Solução</a></li>
+    <li><a href="#modulos">Módulos</a></li>
+    <li><a href="#ciclo">Ciclo</a></li>
+    <li><a href="#investimento">Investimento</a></li>
+  </ul>
+</nav>
+
+<!-- CAPA -->
+<section id="capa">
+  <div class="capa-inner">
+    <div class="capa-logo"><img src="logo_beaba.png" alt="Bê-a-Bá Mídia"></div>
+    <div class="capa-eyebrow">Proposta Comercial · Março de 2026</div>
+    <h1 class="capa-title">Gestão de Tráfego Pago<br>para <span class="accent">Rede de<br>Franqueados</span></h1>
+    <p class="capa-sub">Calebito Franqueadora × Bê-a-Bá Mídia</p>
+    <div class="capa-meta">
+      <div class="capa-meta-item"><label>Elaborado por</label><span>Carlos Furtado</span></div>
+      <div class="capa-meta-item"><label>Destinatário</label><span>Calebe Tatagiba</span></div>
+      <div class="capa-meta-item"><label>Data</label><span>Março de 2026</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 DIAGNÓSTICO -->
+<section id="diagnostico">
+  <div class="container">
+    <div class="sec-label"><span class="num">01</span> Diagnóstico do Cenário</div>
+    <h2>O que <span class="accent">mapeamos</span> sobre a rede</h2>
+    <p>A Calebito é uma franqueadora de performance com 2 anos de operação. O modelo de crescimento é intencional e controlado — a meta não é volume de franqueados, é resultado por franqueado, o que se reflete na proporção de multifranqueados já presentes na rede.</p>
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-num">16</div><div class="stat-label">Franqueados ativos</div></div>
+      <div class="stat-box"><div class="stat-num">31</div><div class="stat-label">Lojas em operação</div></div>
+      <div class="stat-box"><div class="stat-num">2</div><div class="stat-label">Anos de rede</div></div>
+    </div>
+    <ul class="info-list">
+      <li>Presença em RJ e ES — com expansão ativa para outros estados</li>
+      <li>Equipe interna de criação: 2 designers (sendo 1 motion designer) e banco robusto de UGC</li>
+      <li>Comunicação com franqueados via aplicativo próprio da franqueadora</li>
+      <li>100% do crescimento conquistado de forma orgânica — zero tráfego pago realizado até hoje</li>
+      <li>Foco em resultado por unidade, não em volume de novas vendas de franquia</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 02 PROBLEMA -->
+<section id="problema">
+  <div class="container">
+    <div class="sec-label"><span class="num">02</span> O Problema que a Calebito Identificou</div>
+    <h2 style="color:#fff;">A decisão que <span style="color:var(--green)">criou a demanda</span></h2>
+    <p>Cada franquia operava com seu próprio Instagram local. A análise interna revelou um cenário preocupante — e levou a uma decisão estratégica de alto impacto.</p>
+    <div class="prob-grid">
+      <div class="prob-item"><div class="prob-num">01</div><p>Franqueados focados no operacional — sem tempo ou conhecimento para gerenciar marketing local com qualidade</p></div>
+      <div class="prob-item"><div class="prob-num">02</div><p>Identidade visual e verbal da marca sendo descumprida, gerando inconsistência de posicionamento</p></div>
+      <div class="prob-item"><div class="prob-num">03</div><p>Conteúdo sem alinhamento com o posicionamento da franqueadora — ruído na percepção de marca</p></div>
+      <div class="prob-item"><div class="prob-num">04</div><p><strong>74%</strong> dos seguidores concentrados em apenas 3 perfis da própria franqueadora — os Instagrams locais não geravam impacto real</p></div>
+    </div>
+    <div class="prob-destaque">
+      <span class="prob-destaque-icon">→</span>
+      <p>A decisão: <strong>unificação de todos os perfis em 6 de abril.</strong> A consequência direta — o franqueado perde a autonomia do gerenciamento das redes sociais e precisa de uma nova forma de gerar visibilidade local.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 SOLUÇÃO -->
+<section id="solucao">
+  <div class="container">
+    <div class="sec-label"><span class="num">03</span> A Solução</div>
+    <h2>Método de <span class="accent">Atendimento</span></h2>
+    <p>Com a unificação dos perfis, o tráfego pago passa a ser o único canal pelo qual o franqueado consegue aparecer de forma específica na sua região, para o seu público, com o seu objetivo.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h4>Abertura de chamado</h4><p>O franqueado abre um chamado via app da franqueadora informando o <strong>módulo</strong> desejado</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h4>Briefing e criativo</h4><p>A Bê-a-Bá Mídia realiza o briefing e solicita o criativo à equipe interna da Calebito</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h4>Campanha ativa</h4><p>A campanha é montada, ativada e otimizada continuamente durante o período</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><h4>Relatórios semanais</h4><p>O franqueado recebe relatórios semanais de acompanhamento e um relatório consolidado ao final do período</p></div></div>
+    </div>
+    <div class="aviso aviso-green"><strong>Estrutura de contas:</strong> todos os anúncios centralizados em uma única Business Manager — simplifica a operação e viabiliza o crescimento da rede. Relatório individualizado por unidade garante transparência total.</div>
+    <div class="aviso aviso-yellow" style="margin-top:1rem;"><strong>Importante:</strong> sobre o valor investido em mídia incidem <strong>12,15%</strong> de impostos de plataforma. Ex: R$ 1.000 investido → R$ 878 efetivamente veiculados. Esse ponto será comunicado a cada unidade antes da ativação.</div>
+  </div>
+</section>
+
+<!-- 04 MÓDULOS -->
+<section id="modulos">
+  <div class="container">
+    <div class="sec-label"><span class="num">04</span> Estrutura Modular para os Franqueados</div>
+    <h2>Cada unidade escolhe o <span class="accent">módulo certo</span> para o seu momento</h2>
+    <p>A proposta para os franqueados é apresentada de forma modular — autonomia de decisão dentro de um modelo estruturado e padronizado pela franqueadora.</p>
+    <div class="modulos-grid">
+      <div class="modulo-card">
+        <div class="modulo-header modulo-header-1">
+          <span class="modulo-badge">Módulo 01</span>
+          <h3>Reconhecimento<br>de Marca</h3>
+        </div>
+        <div class="modulo-body">
+          <div class="modulo-sec">
+            <span class="modulo-sec-label">Objetivo</span>
+            <p style="font-size:.83rem;margin:0;color:#3D4D42;font-weight:600;">Aumentar a visibilidade da loja na região, gerar reconhecimento local e construir audiência qualificada.</p>
+          </div>
+          <div class="modulo-sec">
+            <span class="modulo-sec-label">Entregáveis</span>
+            <ul class="modulo-list">
+              <li>Campanha de reconhecimento segmentada por região</li>
+              <li>Otimização contínua durante o período ativo</li>
+              <li>Relatórios semanais de acompanhamento</li>
+              <li>Relatório consolidado ao final do ciclo</li>
+            </ul>
+          </div>
+          <div class="modulo-sec">
+            <span class="modulo-sec-label">Métricas acompanhadas</span>
+            <div class="tags-wrap">
+              <span class="tag">Alcance</span><span class="tag">Impressões</span><span class="tag">CPM</span><span class="tag">Frequência</span><span class="tag">Audiência local</span>
+            </div>
+          </div>
+          <p style="font-size:.72rem;color:var(--gray-light);font-style:italic;margin:.5rem 0 0;font-weight:600;">Benchmarks de sucesso construídos ao longo do Ciclo de Validação.</p>
+        </div>
+        <div class="modulo-footer">
+          <div><span class="modulo-preco-label">Investimento em mídia</span><div class="modulo-preco">R$ 750<small>/mês</small></div></div>
+        </div>
+      </div>
+      <div class="modulo-card">
+        <div class="modulo-header modulo-header-2">
+          <span class="modulo-badge">Módulo 02</span>
+          <h3>Reconhecimento +<br>Vendas pelo Cardápio Digital</h3>
+        </div>
+        <div class="modulo-body">
+          <div class="modulo-sec">
+            <span class="modulo-sec-label">Objetivo</span>
+            <p style="font-size:.83rem;margin:0;color:#3D4D42;font-weight:600;">Construir presença local e direcionar tráfego qualificado para o cardápio digital do franqueado, gerando pedidos mensuráveis.</p>
+          </div>
+          <div class="modulo-sec">
+            <span class="modulo-sec-label">Entregáveis</span>
+            <ul class="modulo-list">
+              <li>Campanha de reconhecimento por região</li>
+              <li>Campanha de conversão para o cardápio digital</li>
+              <li>Otimização contínua de ambas as campanhas</li>
+              <li>Relatórios semanais de acompanhamento</li>
+              <li>Relatório consolidado com métricas por objetivo</li>
+            </ul>
+          </div>
+          <div class="modulo-sec">
+            <span class="modulo-sec-label">Métricas acompanhadas</span>
+            <div class="tags-wrap">
+              <span class="tag">Alcance</span><span class="tag">CPM</span><span class="tag">CTR</span><span class="tag">CPC</span><span class="tag">Cliques no cardápio</span>
+            </div>
+          </div>
+          <p style="font-size:.72rem;color:var(--gray-light);font-style:italic;margin:.5rem 0 0;font-weight:600;">* Campanha de vendas direcionada exclusivamente ao cardápio digital. Parâmetros de conversão construídos no Ciclo de Validação.</p>
+        </div>
+        <div class="modulo-footer">
+          <div><span class="modulo-preco-label">Investimento em mídia</span><div class="modulo-preco">R$ 1.500<small>/mês</small></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 CICLO -->
+<section id="ciclo">
+  <div class="container">
+    <div class="sec-label"><span class="num">05</span> Ciclo de Validação</div>
+    <h2>90 dias para construir a <span class="accent">inteligência de marketing</span> da rede</h2>
+    <p>O Ciclo de Validação estrutura a operação de tráfego pago, ativa as primeiras unidades e gera os dados reais que vão guiar o Ciclo de Performance — validando o formato de parceria entre a Calebito e a Bê-a-Bá Mídia.</p>
+    <div class="ciclo-grid">
+      <div class="ciclo-mes">
+        <span class="ciclo-mes-tag">Mês 01</span>
+        <div class="ciclo-mes-title">Setup e Ativação</div>
+        <ul>
+          <li>Estruturação da Business Manager centralizada</li>
+          <li>Onboarding das primeiras unidades</li>
+          <li>Definição de módulo por unidade</li>
+          <li>Ativação das primeiras campanhas</li>
+          <li>Alinhamento do fluxo de chamados via app</li>
+        </ul>
+      </div>
+      <div class="ciclo-mes">
+        <span class="ciclo-mes-tag">Mês 02</span>
+        <div class="ciclo-mes-title">Otimização</div>
+        <ul>
+          <li>Análise dos resultados do mês 1</li>
+          <li>Otimização das campanhas ativas</li>
+        </ul>
+      </div>
+      <div class="ciclo-mes">
+        <span class="ciclo-mes-tag">Mês 03</span>
+        <div class="ciclo-mes-title">Consolidação e Relatório</div>
+        <ul>
+          <li>Consolidação das campanhas</li>
+          <li>Relatório individual por unidade</li>
+          <li>Relatório consolidado com visão de rede</li>
+          <li>Recomendações para o Ciclo de Performance</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ciclo-cap"><span>Capacidade do plano</span><strong>Até 8 unidades simultâneas</strong></div>
+  </div>
+</section>
+
+<!-- 06 COMPROMISSO -->
+<section id="compromisso">
+  <div class="container">
+    <div class="sec-label"><span class="num">06</span> Nosso Compromisso</div>
+    <h2>Marketing como <span style="color:rgba(255,255,255,0.5)">investimento,<br>não como custo</span></h2>
+    <div class="comp-quote">
+      <p>"Queremos que ao final do Ciclo de Validação, cada unidade queira investir cada vez mais — porque os números vão falar por si."</p>
+    </div>
+    <p>Esse é o padrão que guia cada decisão estratégica, cada otimização e cada relatório entregue. Não entregamos campanhas — entregamos resultados que mudam a percepção do franqueado sobre o que o marketing pode fazer pelo negócio dele.</p>
+  </div>
+</section>
+
+<!-- 07 ALINHAMENTO -->
+<section id="alinhamento">
+  <div class="container">
+    <div class="sec-label"><span class="num">07</span> Alinhamento</div>
+    <h2>Antes de falar em investimento,<br><span class="accent">vamos confirmar</span></h2>
+    <p>Quero garantir que estamos na mesma página em relação a tudo que foi apresentado.</p>
+    <div class="perguntas">
+      <div class="pergunta"><p>O modelo de atendimento que apresentamos resolve a necessidade de visibilidade local que o franqueado vai sentir após a unificação dos perfis?</p></div>
+      <div class="pergunta"><p>A estrutura modular faz sentido para a realidade de vocês — onde cada unidade escolhe o aporte de forma modular?</p></div>
+      <div class="pergunta"><p>A experiência com redes de food service e o entendimento de funil de vendas é o que vocês buscavam num parceiro de tráfego?</p></div>
+      <div class="pergunta"><p>A entrega de relatórios semanais individualizados por unidade e consolidados para a franqueadora atende a necessidade de transparência e controle que vocês precisam?</p></div>
+      <div class="pergunta"><p>Com tudo que foi apresentado, você sente que essa é a estrutura certa para esse momento da Calebito?</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 INVESTIMENTO -->
+<section id="investimento">
+  <div class="container">
+    <div class="sec-label"><span class="num">08</span> Investimento</div>
+    <h2>Ciclo de Validação —<br><span style="color:var(--green)">até 8 unidades</span></h2>
+
+    <!-- 2ª DEMANDA INCLUSA -->
+    <div class="ciclo2" style="margin-bottom:2rem;">
+      <span class="ciclo2-label">Incluso neste pacote</span>
+      <p>A segunda demanda apresentada — <strong>Escopo Padrão de Lançamento de Lojas</strong> — está incluída neste pacote. O modelo de campanha para inaugurações será desenhado em conjunto com a equipe da Calebito após o fechamento do contrato, garantindo um escopo sob medida para a realidade da rede.</p>
+    </div>
+
+    <div class="invest-grid">
+      <div class="invest-box">
+        <span class="invest-box-label">Valor total do projeto · 90 dias</span>
+        <div class="invest-total"><sup>R$</sup> 9.000</div>
+        <div class="invest-total-sub">Ciclo de Validação · 3 meses · até 8 unidades</div>
+      </div>
+      <div class="invest-box">
+        <span class="invest-box-label">Formas de pagamento</span>
+        <div class="pag-opts">
+          <div class="pag-opt">
+            <span class="pag-opt-label">Pix ou Boleto</span>
+            <div class="pag-opt-desc">R$ 4.000 de entrada<br>+ 2× de R$ 2.500</div>
+          </div>
+          <div class="pag-opt">
+            <span class="pag-opt-label">Cartão de Crédito</span>
+            <div class="pag-opt-desc">R$ 3.000 de entrada<br>+ R$ 6.000 parcelado<br><small>+ taxas da plataforma de pagamento</small></div>
+          </div>
+        </div>
+        <div class="pag-nota"><p>O budget de mídia de cada unidade é pago diretamente na plataforma de anúncios e não está incluído neste valor.</p></div>
+      </div>
+    </div>
+    <div class="ciclo2">
+      <span class="ciclo2-label">E depois dos 90 dias?</span>
+      <p>Ao final do Ciclo de Validação, apresentamos um relatório consolidado de impacto para a diretoria. A parceria então evolui para o <strong>Ciclo de Performance — retainer mensal + percentual sobre o investimento em mídia de cada unidade ativa.</strong> Você só paga mais quando a rede investe mais.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="logo_beaba.png" alt="Bê-a-Bá Mídia">
+  <p>CNPJ 35.970.989/0001-40 · beabamidia.com.br · Março de 2026</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('section:not(#capa)').forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
