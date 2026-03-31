@@ -615,8 +615,13 @@
     .nav-links { display: none; }
     .container { padding: 0 1.5rem; }
     section { padding: 5rem 0; }
-    .stats-row, .modulos-grid, .ciclo-grid, .invest-grid, .prob-grid, .capa-meta { grid-template-columns: 1fr; }
+    .stats-row, .modulos-grid, .ciclo-grid, .invest-grid, .prob-grid { grid-template-columns: 1fr; }
     .capa-title { font-size: 2.2rem; }
+    .capa-meta { grid-template-columns: 1fr; gap: 1.2rem; }
+    .capa-meta-item { padding: 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding-bottom: 1rem; }
+    .capa-meta-item:last-child { border-bottom: none; padding-bottom: 0; }
+    footer { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 2rem 1.5rem; }
+    footer p { text-align: left; }
   }
 
   @media print {
